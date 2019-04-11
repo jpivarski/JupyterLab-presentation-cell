@@ -17,5 +17,4 @@ pre {
   line-height: var(--jp-code-line-height);
 }
 
-.jp-NotebookPanel-notebook > .jp-Cell { display: none; }
-.jp-NotebookPanel-notebook > .jp-Cell.jp-mod-selected { display: block; }
+.jp-NotebookPanel-notebook > .jp-Cell:not(.jp-mod-selected) { display: none; }

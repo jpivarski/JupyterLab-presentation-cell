@@ -2,42 +2,64 @@
   "name": "presentation-cell",
   "version": "0.1.0",
   "description": "A simple theme, based on JupyterLab light, to show only the current cell.",
+  "author": "Jim Pivarski <jpivarski@gmail.com>",
   "keywords": [
     "jupyter",
     "jupyterlab",
-    "jupyterlab-extension"
+    "jupyterlab-extension",
+    "jupyterlab-theme"
   ],
-  "homepage": "https://github.com/jpivarski/JupyterLab-presentation-cell",
-  "bugs": {
-    "url": "https://github.com/jpivarski/JupyterLab-presentation-cell/issues"
-  },
   "license": "BSD-3-Clause",
-  "author": "Jim Pivarski",
   "files": [
-    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
-    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+    "lib/*.d.ts",
+    "lib/*.js.map",
+    "lib/*.js",
+    "style/*"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "style": "style/index.css",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jpivarski/JupyterLab-presentation-cell.git"
+  "directories": {
+    "lib": "lib/"
   },
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf lib && rimraf tsconfig.tsbuildinfo",
+    "build": "tsc -b",
+    "build:webpack": "webpack",
+    "clean": "rimraf lib && rimraf static",
     "prepare": "npm run clean && npm run build",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "watch:webpack": "webpack --watch"
   },
   "dependencies": {
-    "@jupyterlab/application": "^1.0.0-rc.0"
+    "@jupyterlab/application": "^1.0.0-alpha.3",
+    "@jupyterlab/apputils": "^1.0.0-alpha.3"
   },
   "devDependencies": {
-    "rimraf": "^2.6.1",
-    "typescript": "~3.5.2"
+    "rimraf": "~2.6.2",
+    "typedoc": "~0.12.0",
+    "typescript": "~3.3.1",
+    "css-loader": "~0.28.7",
+    "mini-css-extract-plugin": "~0.4.4",
+    "svgo": "~1.0.4",
+    "svg-url-loader": "~2.3.1",
+    "svgo-loader": "~2.1.0",
+    "url-loader": "~1.0.1",
+    "watch": "~1.0.2",
+    "webpack": "~4.12.0",
+    "webpack-cli": "^3.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "jupyterlab": {
-    "extension": true
+    "extension": true,
+    "themePath": "style/index.css"
+  },
+  "homepage": "",
+  "bugs": {
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
   }
 }

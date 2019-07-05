@@ -1,17 +1,27 @@
 import {
-  JupyterFrontEnd, JupyterFrontEndPlugin
+  JupyterFrontEnd,
+  JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
+import { IThemeManager } from '@jupyterlab/apputils';
 
 /**
- * Initialization data for the presentation-cell extension.
+ * A plugin for presentation-cell
  */
-const extension: JupyterFrontEndPlugin<void> = {
-  id: 'presentation-cell',
-  autoStart: true,
-  activate: (app: JupyterFrontEnd) => {
-    console.log('JupyterLab extension presentation-cell is activated!');
-  }
+const plugin: JupyterFrontEndPlugin<void> = {
+  id: 'presentation-cell:plugin',
+  requires: [IThemeManager],
+  activate: function(app: JupyterFrontEnd, manager: IThemeManager) {
+    const style = 'presentation-cell/index.css';
+
+    manager.register({
+      name: 'presentation-cell',
+      isLight: true,
+      load: () => manager.loadCSS(style),
+      unload: () => Promise.resolve(undefined)
+    });
+  },
+  autoStart: true
 };
 
-export default extension;
+export default plugin;

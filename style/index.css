@@ -16,3 +16,5 @@ pre {
   font-size: var(--jp-code-font-size);
   line-height: var(--jp-code-line-height);
 }
+
+.jp-NotebookPanel-notebook > .jp-Cell:not(.jp-mod-selected) { display: none; }

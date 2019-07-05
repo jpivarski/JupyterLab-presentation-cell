@@ -1,7 +1,7 @@
 {
   "name": "presentation-cell",
   "version": "0.1.0",
-  "description": "Hides all but the currently active cell, for presentations.",
+  "description": "A simple theme, based on JupyterLab light, to show only the current cell.",
   "author": "Jim Pivarski <jpivarski@gmail.com>",
   "keywords": [
     "jupyter",
@@ -30,13 +30,13 @@
     "watch:webpack": "webpack --watch"
   },
   "dependencies": {
-    "@jupyterlab/application": "^0.19.1",
-    "@jupyterlab/apputils": "^0.19.1"
+    "@jupyterlab/application": "^1.0.0-alpha.3",
+    "@jupyterlab/apputils": "^1.0.0-alpha.3"
   },
   "devDependencies": {
     "rimraf": "~2.6.2",
     "typedoc": "~0.12.0",
-    "typescript": "~3.1.1",
+    "typescript": "~3.3.1",
     "css-loader": "~0.28.7",
     "mini-css-extract-plugin": "~0.4.4",
     "svgo": "~1.0.4",
@@ -52,7 +52,6 @@
   },
   "jupyterlab": {
     "extension": true,
-    "themeDir": "style",
     "themePath": "style/index.css"
   },
   "homepage": "",
